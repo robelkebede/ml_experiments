@@ -1,0 +1,77 @@
+
+
+things to do today
+
+
+how to represent the full MDP  (DONE)
+
+reward and transition  (DONE)
+
+value iteration (DONE)
+policy iteration (DONE)
+
+monte carlo model free prediction (DONE)
+monte carlo model free control (DONE)
+
+https://ai-mrkogao.github.io/reinforcement%20learning/openaigymtutorial/
+
+########################################################################
+
+READ and UNDERSTAND EVERYTHING (DONE)
+
+the diffrince b/n value iteration and policy iteration  (DONE)
+
+how blackjack works  (DONE)
+
+
+#########################################################################
+
+READ and UNDERSTAND EVERYTHING  monte carlo
+
+https://github.com/djbyrne/MonteCarlo
+
+
+#########################################################################
+
+TD model free prediction
+TD model free control
+
+finish vision course 
+
+=========================================================================
+
+FIX the RL problems 
+
+
+* td model free prediction 
+* td model free control 
+
+* q-learning 
+* sarsa
+
+* off-policy stuff
+
+* value function approximator 
+* action-value function approximator 
+* policy-gradient 
+* softmax policy 
+* gaussian policy 
+* actor-critic algorithm
+* dyna-Q algorithm
+
+
+
+
+####################################################################3
+Notes
+
+In general, bootstrapping in RL means that you update a value based on some estimates and not on some exact values. E.g. Gt
+
+in monte carlo "Gt" is used to estimatie the value function that means it dosent use bootstraping 
+on the other hand
+
+TD(0) is estimation of bootstraped by "r(t+1) + gamma * value(t+1)"
+
+
+
+

@@ -1,0 +1,42 @@
+
+
+
+List of experiments i have to do
+
+* auto-encoder network (DONE)
+* constractive auto-encoders (DONE)
+* activation functions how bias changes activation functions (DONE)
+* sparse autoencoders (DONE)
+* denoising autoencoders (DONE)
+* dropout (DONE)
+* spiking neurons (DONE)
+* PCA (DONE)
+* attention (DONE)
+* maxout networks
+* invariance meshure nips09-MeasuringInvariancesDeepNetworks.pdf
+
+* RNN (DONE)
+* LSTM (DONE)
+* neural turing machine (DONE)
+* word2vec (DONE)
+* batch normalization  (DONE)
+
+* reinforcement learning algorithms use (denny britz) as a guide 
+  * David Silver Reinforcement Learning implement
+  * select algorithms to implement 
+
+reinforcement learning 
+
+* value iteration 
+* policy iteration 
+* q-learning 
+* sarsa
+* value function approximator 
+* action-value function approximator 
+* policy-gradient 
+* softmax policy 
+* gaussian policy 
+* actor-critic algorithm
+* dyna-Q algorithm
+* exploration and exploitation 
+

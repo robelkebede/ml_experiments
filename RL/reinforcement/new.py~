@@ -1,0 +1,178 @@
+
+import time
+import numpy as np
+import matplotlib.pyplot as plt
+from IPython.display import display, clear_output
+
+class NewWorld():
+
+    def __init__(self):
+
+
+        self.goal_x = 0
+        self.goal_y = 2 
+
+        self.size = 4
+
+        self.done = False
+        
+        self.grid = []
+
+        self.x = 0
+        self.y = 0
+
+        for i in range(self.size):
+            self.grid.append([])
+            for x in range(self.size):
+                self.grid[i].append(0)
+
+        self.grid = np.array(self.grid)
+
+        self.grid[0][0] =1
+
+        # init reward function 
+
+        self.reward = np.ones_like(self.grid)
+        self.reward[1][1] = -1
+        self.reward[2][2] = -1
+
+        # init value function 
+        
+        self.value = []
+        for i in range(self.size):
+            self.value.append([])
+            for x in range(self.size):
+                self.value[i].append(1)
+
+        self.value = np.array(self.value) 
+
+        # transition probability 
+        #           1  2    3     4
+        # 4 moves [up down left right]
+
+        # source https://github.com/dennybritz/...envs/gridworld.py     
+        P = {}
+        
+        s = self.grid
+
+        P[s] = {a : [] for a in range(4)}
+        
+        print(P[s])
+
+        exit()
+
+        MAX_X = 4
+        MAX_Y = 4
+        MIN_X = 0
+        MIN_Y = 0
+
+        transition_x = 0
+        transition_y = 0
+
+        if self.done:
+            P[s][1] = [(1.0, s, self.reward[self.x][self.y], True)]
+            P[s][2] = [(1.0, s, self.reward[self.x][self.y], True)]
+            P[s][3] = [(1.0, s, self.reward[self.x][self.y], True)]
+            P[s][4] = [(1.0, s, self.reward[self.x][self.y], True)]
+        else:
+            
+            ns_up = s if self.y == MIN_X else transition_x-1
+            ns_down = s if self.y == MAX_X else transition_y+1
+            
+            ns_left = s if self.x == MIN_Y else transition_y-1
+            ns_right = s if self.x == MAX_Y else transition_y+1
+
+            P[s][1] = [(1.0, 3, 1, True)]
+            #P[s][2] = [(1.0, s, self.reward[self.x][self.y], True)]
+            #P[s][3] = [(1.0, s, self.reward[self.x][self.y], True)]
+            #P[s][4] = [(1.0, s, self.reward[self.x][self.y], True)]
+    
+        self.P = P
+
+
+
+    def render(self):
+        clear_output(wait=True)  
+        print(self.grid)
+        time.sleep(1)
+
+    def random_action(self):
+
+        #           1  2   3   4
+        # 4 moves [up down left right]
+        move = np.random.randint(1,5)
+
+        return move
+
+
+    def reset(self):
+
+
+        self.grid = []
+
+        self.done = False
+
+        self.x = 0
+        self.y = 0
+
+        for i in range(self.size):
+            self.grid.append([])
+            for x in range(self.size):
+                self.grid[i].append(0)
+
+        self.grid = np.array(self.grid)
+        self.grid[0][0] =1
+
+
+
+    def step(self,x):
+                  # 1  2   3   4
+        # 4 moves [up down left right]
+        if x==1: 
+            self.move(x=-1,y=0)
+        if x==2: 
+            self.move(x=+1,y=0)
+        if x==3: 
+            self.move(x=0,y=-1)
+        if x==4: 
+            self.move(x=0,y=1)
+
+        # return observation reward and done
+        
+        if self.x == self.goal_x and self.y == self.goal_y:
+            self.done = True
+
+        return self.grid,self.reward[self.x][self.y],self.done,{}
+
+    def move(self,x,y):
+
+        self.grid[self.x][self.y] = 0
+
+        self.x += x
+        self.y += y
+
+        if self.x < 0:
+            self.x = 0
+
+        elif self.x > self.size-1:
+            self.x = self.size-1
+
+        if self.y < 0:
+            self.y = 0
+
+        elif self.y > self.size-1:
+            self.y = self.size-1
+
+        # if goal state return done
+
+        self.grid[self.x][self.y] = 1
+
+
+
+if __name__ == "__main__":
+
+    new = NewWorld()
+    #          1   2   3    4 
+    # 4 moves [up down left right]
+    x = new.step(2)
+    print(x)
