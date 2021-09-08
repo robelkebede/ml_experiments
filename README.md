@@ -22,6 +22,7 @@ Codes
 * neural turing machine (DONE)                                                            
 * word2vec (DONE)                                                                         
 * batch normalization  (DONE)                                                             
+* PGM (DONE)
                                                                                           
 reinforcement learning                                                                    
                                                                                           
@@ -40,7 +41,8 @@ reinforcement learning
 * value function approximator  (DONE)                                                     
 * action-value function approximator (DONE)                                               
                                                                                           
-* policy-gradient                                                                         
+* REINFORCE (DONE)
+
 * softmax policy                                                                          
 * gaussian policy                                                                         
                                                                                           

@@ -38,7 +38,7 @@ reinforcement learning
 * value function approximator  (DONE)
 * action-value function approximator (DONE)
 
-* policy-gradient 
+* REINFORCE (DONE)
 * softmax policy 
 * gaussian policy 
 
